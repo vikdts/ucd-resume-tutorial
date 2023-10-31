@@ -20,6 +20,17 @@
       type="text/css"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("WuSGsTo1SQC01dWoh");
+      })();
+    </script>
+
     <title>Rosie</title>
   </head>
 
@@ -37,25 +48,37 @@
           <div class="row no-gutters">
             <div class="col">
               <ul id="nav" class="list-inline menucontainer row">
-                <li class="col-6 col-sm-3 ui-menu-color-home menuitem">
+                <li class="col-6 col-sm-2 ui-menu-color-home menuitem">
                   <a href="index.html" class="hvr-sweep-to-bottom"
                     ><i class="fa fa-home" aria-hidden="true"></i
                     ><span>Home</span></a
                   >
                 </li>
-                <li class="col-6 col-sm-3 ui-menu-color-resume menuitem">
+                <li class="col-6 col-sm-2 ui-menu-color-resume menuitem">
                   <a href="resume.html" class="hvr-sweep-to-bottom"
                     ><i class="fa fa-graduation-cap" aria-hidden="true"></i
                     ><span>Resume</span></a
                   >
                 </li>
-                <li class="col-6 col-sm-3 ui-menu-color-contact menuitem">
+                <li class="col-6 col-sm-2 ui-menu-color-contact menuitem">
                   <a href="contact.html" class="hvr-sweep-to-bottom"
                     ><i class="fa fa-comment-o" aria-hidden="true"></i
                     ><span>Contact</span></a
                   >
                 </li>
-                <li class="col-6 col-sm-3 ui-menu-color-download menuitem">
+                <li class="col-6 col-sm-2 ui-menu-color-interests menuitem">
+                  <a href="interests.html" class="hvr-sweep-to-bottom"
+                    ><i class="fa fa-users" aria-hidden="true"></i
+                    ><span>Interests</span></a
+                  >
+                </li>
+                <li class="col-6 col-sm-2 ui-menu-color-github menuitem">
+                  <a href="github.html" class="hvr-sweep-to-bottom"
+                    ><i class="fa fa-github" aria-hidden="true"></i
+                    ><span>GitHub</span></a
+                  >
+                </li>
+                <li class="col-6 col-sm-2 ui-menu-color-download menuitem">
                   <a
                     href="assets/cv/sample-cv.pdf"
                     target="_blank"
@@ -79,38 +102,34 @@
           <h5 class="uppercase text-center">Let's work together!</h5>
 
           <div class="center-form">
-            <form>
+            <form onsubmit="return sendMail(this);" method="POST">
               <input
                 type="text"
                 name="name"
-                id="fullname"
                 class="form-control"
+                id="fullname"
                 placeholder="Name"
                 required
               />
               <input
-                type="email"
-                name="email"
-                id="emailaddress"
+                type="text"
+                name="emailaddress"
                 class="form-control"
+                id="emailaddress"
                 placeholder="Email"
                 required
               />
               <textarea
                 rows="5"
                 name="projectsummary"
-                id="projectsummary"
                 class="form-control"
-                placeholder="Project description"
+                id="projectsummary"
+                placeholder="Project Description"
                 required
               ></textarea>
-              <div class="form-row text-center">
-                <div class="col">
-                  <button type="submit" class="btn btn-secondary">
-                    Send Project Request
-                  </button>
-                </div>
-              </div>
+              <button type="submit" class="btn btn-secondary center-block">
+                Send Project Request
+              </button>
             </form>
           </div>
         </div>
@@ -178,5 +197,6 @@
         </div>
       </div>
     </footer>
+    <script src="./assets/js/sendEmail.js"></script>
   </body>
 </html>
